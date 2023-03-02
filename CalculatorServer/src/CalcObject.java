@@ -26,7 +26,7 @@ public class CalcObject extends CalcPOA{
 	* @return calculation result
 	*/
     @Override
-    public int calculate(int type, int a, int b) {
+    public float calculate(int type, int a, int b) {
         long result;
         
         if (type == 1) {
@@ -51,7 +51,7 @@ public class CalcObject extends CalcPOA{
             return Integer.MIN_VALUE;
         }
         else {
-            return (int) result;
+            return (float) result;
         }
     }
     
