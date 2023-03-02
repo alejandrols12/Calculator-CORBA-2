@@ -37,10 +37,10 @@ public abstract class CalcPOA extends org.omg.PortableServer.Servant
          int opcode = in.read_long ();
          int op1 = in.read_long ();
          int op2 = in.read_long ();
-         int $result = (int)0;
+         float $result = (float)0;
          $result = this.calculate (opcode, op1, op2);
          out = $rh.createReply();
-         out.write_long ($result);
+         out.write_float ($result);
          break;
        }
 
