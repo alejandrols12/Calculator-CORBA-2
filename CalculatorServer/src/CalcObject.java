@@ -6,6 +6,7 @@
 
 import Calculator.CalcPOA;
 import org.omg.CORBA.ORB;
+import java.util.*;
 
 /**
  *
@@ -37,8 +38,10 @@ public class CalcObject extends CalcPOA{
         else if (type == 3) {
             result = (long) a * b;
         }
-        else{
+        else if (type == 4){
             result = (long) a / b;
+        }else{
+            result = (long) Math.sqrt(a);
         }
         
         if (result >= Integer.MAX_VALUE) {
