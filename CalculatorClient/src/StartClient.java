@@ -35,7 +35,7 @@ public class StartClient {
 	    calcObj = (Calc) CalcHelper.narrow(ncRef.resolve_str("Calculator"));
 
             while(true) {
-                // --------------------------------------------------------------
+                // asking for input and read it
                 System.out.println("\n------------------------------------------\n");
                 System.out.println("For help with the operands aviable type 'Operands_av'\n");
                 Scanner c=new Scanner(System.in);
@@ -56,7 +56,7 @@ public class StartClient {
                     continue;
                 }
                     
-		//---------------------------------------------------------------
+
                 if(inputParams[0].equals("Operands_av")){
                     System.out.println("\nList of operands: add + | substract - |  multiply * | divide / | square root -> sqrt |"
                         +"\nIn case of square root only uses the first operator [operator][sp][operand1]-> sqrt 2"); 
@@ -116,19 +116,16 @@ public class StartClient {
                     continue;
                 }
                 
-                // do the calculation and return result
-		        int result = calcObj.calculate(operatorCode, operand1, operand2);
-                String resultDisplay = "";
+                // do the calculation and return result---------------------------------------------------
+		        float result = calcObj.calculate(operatorCode, operand1, operand2);
                 if (result == Integer.MAX_VALUE) {
-                    resultDisplay = "There might be an Integer Overflow. Please try again...";
+                    System.out.println ("There might be an Integer Overflow. Please try again...");
                 }
                 else if (result == Integer.MIN_VALUE) {
-                    resultDisplay = "There might be an Integer Underflow. Please try again...";
+                    System.out.println ("There might be an Integer Underflow. Please try again...");
                 }
-                else {
-                    resultDisplay = String.valueOf(result);
-                }
-		        System.out.println("The result is: " + resultDisplay);
+                
+		        System.out.println("The result is: " + result);
             }
         }
         catch (Exception e) {
